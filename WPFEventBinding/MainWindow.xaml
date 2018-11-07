@@ -14,7 +14,15 @@
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <local:TestControl Margin="5" SnapsToDevicePixels="True" />
+        <local:TestControl Margin="5" SnapsToDevicePixels="True">
+            <local:EventToCommand.EventBindings>
+                <local:EventBindingCollection>
+                    <local:EventBinding EventName="MouseWheelUp" Command="{Binding IncreaseValueCommand}" />
+                    <local:EventBinding EventName="MouseWheelDown" Command="{Binding DecreaseValueCommand}" />
+                    <local:EventBinding EventName="MouseLeftButtonDown" Command="{Binding ResetValueCommand}" />
+                </local:EventBindingCollection>
+            </local:EventToCommand.EventBindings>
+        </local:TestControl>
         <StackPanel Grid.Row="1">
             <StackPanel>
                 <Label>
