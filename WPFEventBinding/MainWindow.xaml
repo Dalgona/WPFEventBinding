@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFEventBinding"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="300" Width="400" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:ViewModel />
+    </Window.DataContext>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <local:TestControl Margin="5" SnapsToDevicePixels="True" />
+        <StackPanel Grid.Row="1">
+            <StackPanel>
+                <Label>
+                    <TextBlock FontSize="18">
+                        <Run>Current Value: </Run>
+                        <Run Foreground="Red" Text="{Binding Value}" />
+                    </TextBlock>
+                </Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="5" />
+                        <Setter Property="Padding" Value="8,3" />
+                    </Style>
+                </StackPanel.Resources>
+                <Button Content="Increase Value" Command="{Binding IncreaseValueCommand}" />
+                <Button Content="Decrease Value" Command="{Binding DecreaseValueCommand}" />
+                <Button Content="Reset Value" Command="{Binding ResetValueCommand}" />
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
