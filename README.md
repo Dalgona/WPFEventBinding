@@ -25,3 +25,7 @@ Finally, `MainWindow` shows that a `TestControl` has three event bindings. Each 
 ## Limitations
 
 This implementation lacks some functionalities, such as sending an `WhateverEventArgs` as a command parameter and so on.
+
+## License
+
+Feel free to do whatever you want to do with anything in this repository.
